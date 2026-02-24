@@ -10,11 +10,25 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* Дополнительные стили для галереи */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
         .gallery-item {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             border-radius: var(--radius);
             overflow: hidden;
             position: relative;
+            height: 350px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         
         .gallery-item img {
@@ -34,9 +48,9 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            background: linear-gradient(to top, rgba(45, 52, 54, 0.95), rgba(45, 52, 54, 0.7), transparent);
             color: white;
-            padding: 30px 20px 20px;
+            padding: 80px 25px 25px;
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -47,14 +61,27 @@
         
         .gallery-overlay h3 {
             margin: 0;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
+            color: #FF8BA7;
         }
         
         .gallery-overlay p {
-            margin: 5px 0 0;
-            font-size: 0.9rem;
-            opacity: 0.9;
+            margin: 8px 0 0;
+            font-size: 0.95rem;
+            opacity: 0.95;
+            color: #fff;
+        }
+        
+        /* Placeholder для изображений */
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255,255,255,0.5);
         }
     </style>
 </head>
@@ -87,48 +114,54 @@
             <p class="section-subtitle">Реальные фото с праздников наших клиентов</p>
             
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1530103862676-de3c9a59af38?w=600&h=400&fit=crop" alt="День рождения">
+                <!-- Работа 1 -->
+                <div class="gallery-item" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <img src="https://placehold.co/600x400/667eea/ffffff?text=День+Рождения" alt="День рождения">
                     <div class="gallery-overlay">
                         <h3>День Рождения</h3>
                         <p>Фотозона в стиле "Единорог"</p>
                     </div>
                 </div>
                 
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=400&fit=crop" alt="Свадьба">
+                <!-- Работа 2 -->
+                <div class="gallery-item" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <img src="https://placehold.co/600x400/f093fb/ffffff?text=Свадьба" alt="Свадьба">
                     <div class="gallery-overlay">
                         <h3>Свадьба</h3>
                         <p>Органическая арка из 200 шаров</p>
                     </div>
                 </div>
                 
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600&h=400&fit=crop" alt="Выписка">
+                <!-- Работа 3 -->
+                <div class="gallery-item" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <img src="https://placehold.co/600x400/4facfe/ffffff?text=Выписка" alt="Выписка">
                     <div class="gallery-overlay">
                         <h3>Выписка из роддома</h3>
                         <p>Набор в коробке с фольгированными шарами</p>
                     </div>
                 </div>
                 
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=600&h=400&fit=crop" alt="Гендер пати">
+                <!-- Работа 4 -->
+                <div class="gallery-item" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    <img src="https://placehold.co/600x400/43e97b/ffffff?text=Гендер+Пати" alt="Гендер пати">
                     <div class="gallery-overlay">
                         <h3>Гендер Пати</h3>
                         <p>Шар-сюрприз с конфетти</p>
                     </div>
                 </div>
                 
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=600&h=400&fit=crop" alt="Юбилей">
+                <!-- Работа 5 -->
+                <div class="gallery-item" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    <img src="https://placehold.co/600x400/fa709a/ffffff?text=Юбилей" alt="Юбилей">
                     <div class="gallery-overlay">
                         <h3>Юбилей 50 лет</h3>
                         <p>Воздушная арка и фотозона</p>
                     </div>
                 </div>
                 
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=600&h=400&fit=crop" alt="Детский праздник">
+                <!-- Работа 6 -->
+                <div class="gallery-item" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    <img src="https://placehold.co/600x400/a8edea/333333?text=Детский+Праздник" alt="Детский праздник">
                     <div class="gallery-overlay">
                         <h3>Детский праздник</h3>
                         <p>Оформление зала шариками</p>
