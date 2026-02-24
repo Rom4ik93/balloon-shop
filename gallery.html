@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Balloons Joy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo"><i class="fas fa-balloon"></i> Balloons Joy</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="gallery.html" class="active">Портфолио</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="icon-btn" onclick="openCart()">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </div>
+                <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" style="padding-top: 120px;">
+        <div class="container">
+            <h2 class="section-title">Наши работы</h2>
+            <p class="section-subtitle">Реальные фото с праздников наших клиентов</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de3c9a59af38?auto=format&fit=crop&w=600&q=80" alt="Work 1">
+                    <div class="gallery-overlay"><h3>День Рождения</h3><p>Фотозона в стиле "Единорог"</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=600&q=80" alt="Work 2">
+                    <div class="gallery-overlay"><h3>Свадьба</h3><p>Органическая арка</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80" alt="Work 3">
+                    <div class="gallery-overlay"><h3>Выписка</h3><p>Набор в коробке</p></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?auto=format&fit=crop&w=600&q=80" alt="Work 4">
+                    <div class="gallery-overlay"><h3>Гендер Пати</h3><p>Шар-сюрприз</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container"><div class="copyright">&copy; 2023 Balloons Joy.</div></div>
+    </footer>
+
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCart()">&times;</span>
+            <h2>Ваша корзина</h2>
+            <div class="cart-items" id="cartItemsContainer"></div>
+            <div style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 20px;">
+                <span>Итого:</span><span id="cartTotal">0 ?</span>
+            </div>
+            <form onsubmit="submitOrder(event)">
+                <div class="form-group"><input type="text" placeholder="Ваше имя" required></div>
+                <div class="form-group"><input type="tel" placeholder="Телефон" required></div>
+                <button type="submit" class="btn" style="width: 100%;">Оформить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

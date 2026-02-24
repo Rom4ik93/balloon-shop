@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloons Joy | Главная</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo"><i class="fas fa-balloon"></i> Balloons Joy</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="gallery.html">Портфолио</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="icon-btn" onclick="openCart()">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </div>
+                <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="bg-ballon" style="position:absolute; width:100px; height:130px; background:#FF8BA7; left:10%; bottom:10%; border-radius:50%; opacity:0.6; animation:float 6s infinite;"></div>
+        <div class="container hero-content">
+            <h1>Праздник в каждом <br> <span>воздушном шаре</span></h1>
+            <p>Индивидуальные композиции и готовые наборы с доставкой за 2 часа.</p>
+            <a href="catalog.html" class="btn">Выбрать шары</a>
+        </div>
+    </section>
+
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">Популярное</h2>
+            <div class="products-grid" id="productsGrid" style="margin-top: 40px;">
+                <!-- JS заполнит это -->
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="catalog.html" class="btn" style="background: white; color: var(--primary); border: 2px solid var(--primary);">Смотреть весь каталог</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">&copy; 2023 Balloons Joy. Прототип для GitHub Pages.</div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно корзины (общее для всех страниц) -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCart()">&times;</span>
+            <h2>Ваша корзина</h2>
+            <div class="cart-items" id="cartItemsContainer"></div>
+            <div style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 20px;">
+                <span>Итого:</span><span id="cartTotal">0 ?</span>
+            </div>
+            <form onsubmit="submitOrder(event)">
+                <div class="form-group"><input type="text" placeholder="Ваше имя" required></div>
+                <div class="form-group"><input type="tel" placeholder="Телефон" required></div>
+                <button type="submit" class="btn" style="width: 100%;">Оформить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

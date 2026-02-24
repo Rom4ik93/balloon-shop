@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог | Balloons Joy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo"><i class="fas fa-balloon"></i> Balloons Joy</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html" class="active">Каталог</a></li>
+                    <li><a href="gallery.html">Портфолио</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="icon-btn" onclick="openCart()">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </div>
+                <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" style="padding-top: 120px;">
+        <div class="container">
+            <h2 class="section-title">Все товары</h2>
+            <p class="section-subtitle">Фильтруйте по категориям для быстрого поиска</p>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="helium">Гелиевые</button>
+                <button class="filter-btn" data-filter="figures">Фигуры</button>
+                <button class="filter-btn" data-filter="arches">Арки</button>
+            </div>
+
+            <div class="products-grid" id="productsGrid"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container"><div class="copyright">&copy; 2023 Balloons Joy.</div></div>
+    </footer>
+
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCart()">&times;</span>
+            <h2>Ваша корзина</h2>
+            <div class="cart-items" id="cartItemsContainer"></div>
+            <div style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 20px;">
+                <span>Итого:</span><span id="cartTotal">0 ?</span>
+            </div>
+            <form onsubmit="submitOrder(event)">
+                <div class="form-group"><input type="text" placeholder="Ваше имя" required></div>
+                <div class="form-group"><input type="tel" placeholder="Телефон" required></div>
+                <button type="submit" class="btn" style="width: 100%;">Оформить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
