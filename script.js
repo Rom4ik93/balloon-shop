@@ -11,6 +11,14 @@ const products = [
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+// Перевод категорий
+const categoryNames = {
+    'helium': 'Гелиевые',
+    'figures': 'Фигуры',
+    'arches': 'Арки',
+    'decor': 'Декор'
+};
+
 // Инициализация
 document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
@@ -28,11 +36,15 @@ function renderProducts(items) {
     const grid = document.getElementById('productsGrid');
     if(!grid) return;
     
-    grid.innerHTML = items.map(product => `
+    grid.innerHTML = items.map(product => {
+        // Переводим категорию
+        const categoryName = categoryNames[product.cat] || product.cat;
+        
+        return `
         <div class="product-card">
             <img src="${product.img}" class="product-img" alt="${product.title}">
             <div class="product-info">
-                <div class="product-cat">${product.cat}</div>
+                <div class="product-cat">${categoryName}</div>
                 <h3 class="product-title">${product.title}</h3>
                 <div class="product-footer">
                     <span class="price">${product.price} ₽</span>
@@ -42,7 +54,7 @@ function renderProducts(items) {
                 </div>
             </div>
         </div>
-    `).join('');
+    `}).join('');
 }
 
 // Фильтрация

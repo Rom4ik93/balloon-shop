@@ -8,6 +8,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Дополнительные стили для галереи */
+        .gallery-item {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+            display: block;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 30px 20px 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .gallery-overlay p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+    </style>
 </head>
 <body>
 
@@ -32,36 +81,70 @@
         </div>
     </header>
 
-    <section class="section" style="padding-top: 120px;">
+    <section class="section" style="padding-top: 120px; min-height: 80vh;">
         <div class="container">
             <h2 class="section-title">Наши работы</h2>
             <p class="section-subtitle">Реальные фото с праздников наших клиентов</p>
             
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1530103862676-de3c9a59af38?auto=format&fit=crop&w=600&q=80" alt="Work 1">
-                    <div class="gallery-overlay"><h3>День Рождения</h3><p>Фотозона в стиле "Единорог"</p></div>
+                    <img src="https://images.unsplash.com/photo-1530103862676-de3c9a59af38?w=600&h=400&fit=crop" alt="День рождения">
+                    <div class="gallery-overlay">
+                        <h3>День Рождения</h3>
+                        <p>Фотозона в стиле "Единорог"</p>
+                    </div>
                 </div>
+                
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=600&q=80" alt="Work 2">
-                    <div class="gallery-overlay"><h3>Свадьба</h3><p>Органическая арка</p></div>
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=400&fit=crop" alt="Свадьба">
+                    <div class="gallery-overlay">
+                        <h3>Свадьба</h3>
+                        <p>Органическая арка из 200 шаров</p>
+                    </div>
                 </div>
+                
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80" alt="Work 3">
-                    <div class="gallery-overlay"><h3>Выписка</h3><p>Набор в коробке</p></div>
+                    <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600&h=400&fit=crop" alt="Выписка">
+                    <div class="gallery-overlay">
+                        <h3>Выписка из роддома</h3>
+                        <p>Набор в коробке с фольгированными шарами</p>
+                    </div>
                 </div>
+                
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?auto=format&fit=crop&w=600&q=80" alt="Work 4">
-                    <div class="gallery-overlay"><h3>Гендер Пати</h3><p>Шар-сюрприз</p></div>
+                    <img src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=600&h=400&fit=crop" alt="Гендер пати">
+                    <div class="gallery-overlay">
+                        <h3>Гендер Пати</h3>
+                        <p>Шар-сюрприз с конфетти</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=600&h=400&fit=crop" alt="Юбилей">
+                    <div class="gallery-overlay">
+                        <h3>Юбилей 50 лет</h3>
+                        <p>Воздушная арка и фотозона</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=600&h=400&fit=crop" alt="Детский праздник">
+                    <div class="gallery-overlay">
+                        <h3>Детский праздник</h3>
+                        <p>Оформление зала шариками</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container"><div class="copyright">&copy; 2023 Balloons Joy.</div></div>
+        <div class="container">
+            <div class="copyright">&copy; 2023 Balloons Joy. Прототип для GitHub Pages.</div>
+        </div>
     </footer>
 
+    <!-- Модальное окно корзины -->
     <div class="modal" id="cartModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeCart()">&times;</span>
