@@ -2,8 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balloons Joy | Главная</title>
+    <title>Balloons Joy | Р“Р»Р°РІРЅР°СЏ</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -15,10 +16,10 @@
             <a href="index.html" class="logo"><i class="fas fa-balloon"></i> Balloons Joy</a>
             <nav>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html" class="active">Главная</a></li>
-                    <li><a href="catalog.html">Каталог</a></li>
-                    <li><a href="gallery.html">Портфолио</a></li>
-                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="index.html" class="active">Р“Р»Р°РІРЅР°СЏ</a></li>
+                    <li><a href="catalog.html">РљР°С‚Р°Р»РѕРі</a></li>
+                    <li><a href="gallery.html">РџРѕСЂС‚С„РѕР»РёРѕ</a></li>
+                    <li><a href="about.html">Рћ РЅР°СЃ</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
@@ -34,43 +35,43 @@
     <section class="hero">
         <div class="bg-ballon" style="position:absolute; width:100px; height:130px; background:#FF8BA7; left:10%; bottom:10%; border-radius:50%; opacity:0.6; animation:float 6s infinite;"></div>
         <div class="container hero-content">
-            <h1>Праздник в каждом <br> <span>воздушном шаре</span></h1>
-            <p>Индивидуальные композиции и готовые наборы с доставкой за 2 часа.</p>
-            <a href="catalog.html" class="btn">Выбрать шары</a>
+            <h1>РџСЂР°Р·РґРЅРёРє РІ РєР°Р¶РґРѕРј <br> <span>РІРѕР·РґСѓС€РЅРѕРј С€Р°СЂРµ</span></h1>
+            <p>РРЅРґРёРІРёРґСѓР°Р»СЊРЅС‹Рµ РєРѕРјРїРѕР·РёС†РёРё Рё РіРѕС‚РѕРІС‹Рµ РЅР°Р±РѕСЂС‹ СЃ РґРѕСЃС‚Р°РІРєРѕР№ Р·Р° 2 С‡Р°СЃР°.</p>
+            <a href="catalog.html" class="btn">Р’С‹Р±СЂР°С‚СЊ С€Р°СЂС‹</a>
         </div>
     </section>
 
     <section class="section" style="background: white;">
         <div class="container">
-            <h2 class="section-title">Популярное</h2>
+            <h2 class="section-title">РџРѕРїСѓР»СЏСЂРЅРѕРµ</h2>
             <div class="products-grid" id="productsGrid" style="margin-top: 40px;">
-                <!-- JS заполнит это -->
+                <!-- JS Р·Р°РїРѕР»РЅРёС‚ СЌС‚Рѕ -->
             </div>
             <div style="text-align: center; margin-top: 40px;">
-                <a href="catalog.html" class="btn" style="background: white; color: var(--primary); border: 2px solid var(--primary);">Смотреть весь каталог</a>
+                <a href="catalog.html" class="btn" style="background: white; color: var(--primary); border: 2px solid var(--primary);">РЎРјРѕС‚СЂРµС‚СЊ РІРµСЃСЊ РєР°С‚Р°Р»РѕРі</a>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="copyright">&copy; 2023 Balloons Joy. Прототип для GitHub Pages.</div>
+            <div class="copyright">&copy; 2023 Balloons Joy. РџСЂРѕС‚РѕС‚РёРї РґР»СЏ GitHub Pages.</div>
         </div>
     </footer>
 
-    <!-- Модальное окно корзины (общее для всех страниц) -->
+    <!-- РњРѕРґР°Р»СЊРЅРѕРµ РѕРєРЅРѕ РєРѕСЂР·РёРЅС‹ (РѕР±С‰РµРµ РґР»СЏ РІСЃРµС… СЃС‚СЂР°РЅРёС†) -->
     <div class="modal" id="cartModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeCart()">&times;</span>
-            <h2>Ваша корзина</h2>
+            <h2>Р’Р°С€Р° РєРѕСЂР·РёРЅР°</h2>
             <div class="cart-items" id="cartItemsContainer"></div>
             <div style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 20px;">
-                <span>Итого:</span><span id="cartTotal">0 ?</span>
+                <span>РС‚РѕРіРѕ:</span><span id="cartTotal">0 в‚Ѕ</span>
             </div>
             <form onsubmit="submitOrder(event)">
-                <div class="form-group"><input type="text" placeholder="Ваше имя" required></div>
-                <div class="form-group"><input type="tel" placeholder="Телефон" required></div>
-                <button type="submit" class="btn" style="width: 100%;">Оформить заказ</button>
+                <div class="form-group"><input type="text" placeholder="Р’Р°С€Рµ РёРјСЏ" required></div>
+                <div class="form-group"><input type="tel" placeholder="РўРµР»РµС„РѕРЅ" required></div>
+                <button type="submit" class="btn" style="width: 100%;">РћС„РѕСЂРјРёС‚СЊ Р·Р°РєР°Р·</button>
             </form>
         </div>
     </div>

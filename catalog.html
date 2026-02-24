@@ -2,8 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог | Balloons Joy</title>
+    <title>РљР°С‚Р°Р»РѕРі | Balloons Joy</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -15,10 +16,10 @@
             <a href="index.html" class="logo"><i class="fas fa-balloon"></i> Balloons Joy</a>
             <nav>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html" class="active">Каталог</a></li>
-                    <li><a href="gallery.html">Портфолио</a></li>
-                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="index.html">Р“Р»Р°РІРЅР°СЏ</a></li>
+                    <li><a href="catalog.html" class="active">РљР°С‚Р°Р»РѕРі</a></li>
+                    <li><a href="gallery.html">РџРѕСЂС‚С„РѕР»РёРѕ</a></li>
+                    <li><a href="about.html">Рћ РЅР°СЃ</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
@@ -33,14 +34,14 @@
 
     <section class="section" style="padding-top: 120px;">
         <div class="container">
-            <h2 class="section-title">Все товары</h2>
-            <p class="section-subtitle">Фильтруйте по категориям для быстрого поиска</p>
+            <h2 class="section-title">Р’СЃРµ С‚РѕРІР°СЂС‹</h2>
+            <p class="section-subtitle">Р¤РёР»СЊС‚СЂСѓР№С‚Рµ РїРѕ РєР°С‚РµРіРѕСЂРёСЏРј РґР»СЏ Р±С‹СЃС‚СЂРѕРіРѕ РїРѕРёСЃРєР°</p>
             
             <div class="filters">
-                <button class="filter-btn active" data-filter="all">Все</button>
-                <button class="filter-btn" data-filter="helium">Гелиевые</button>
-                <button class="filter-btn" data-filter="figures">Фигуры</button>
-                <button class="filter-btn" data-filter="arches">Арки</button>
+                <button class="filter-btn active" data-filter="all">Р’СЃРµ</button>
+                <button class="filter-btn" data-filter="helium">Р“РµР»РёРµРІС‹Рµ</button>
+                <button class="filter-btn" data-filter="figures">Р¤РёРіСѓСЂС‹</button>
+                <button class="filter-btn" data-filter="arches">РђСЂРєРё</button>
             </div>
 
             <div class="products-grid" id="productsGrid"></div>
@@ -54,15 +55,15 @@
     <div class="modal" id="cartModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeCart()">&times;</span>
-            <h2>Ваша корзина</h2>
+            <h2>Р’Р°С€Р° РєРѕСЂР·РёРЅР°</h2>
             <div class="cart-items" id="cartItemsContainer"></div>
             <div style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 20px;">
-                <span>Итого:</span><span id="cartTotal">0 ?</span>
+                <span>РС‚РѕРіРѕ:</span><span id="cartTotal">0 в‚Ѕ</span>
             </div>
             <form onsubmit="submitOrder(event)">
-                <div class="form-group"><input type="text" placeholder="Ваше имя" required></div>
-                <div class="form-group"><input type="tel" placeholder="Телефон" required></div>
-                <button type="submit" class="btn" style="width: 100%;">Оформить заказ</button>
+                <div class="form-group"><input type="text" placeholder="Р’Р°С€Рµ РёРјСЏ" required></div>
+                <div class="form-group"><input type="tel" placeholder="РўРµР»РµС„РѕРЅ" required></div>
+                <button type="submit" class="btn" style="width: 100%;">РћС„РѕСЂРјРёС‚СЊ Р·Р°РєР°Р·</button>
             </form>
         </div>
     </div>

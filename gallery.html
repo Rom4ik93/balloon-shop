@@ -2,8 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио | Balloons Joy</title>
+    <title>РџРѕСЂС‚С„РѕР»РёРѕ | Balloons Joy</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -15,10 +16,10 @@
             <a href="index.html" class="logo"><i class="fas fa-balloon"></i> Balloons Joy</a>
             <nav>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html">Каталог</a></li>
-                    <li><a href="gallery.html" class="active">Портфолио</a></li>
-                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="index.html">Р“Р»Р°РІРЅР°СЏ</a></li>
+                    <li><a href="catalog.html">РљР°С‚Р°Р»РѕРі</a></li>
+                    <li><a href="gallery.html" class="active">РџРѕСЂС‚С„РѕР»РёРѕ</a></li>
+                    <li><a href="about.html">Рћ РЅР°СЃ</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
@@ -33,25 +34,25 @@
 
     <section class="section" style="padding-top: 120px;">
         <div class="container">
-            <h2 class="section-title">Наши работы</h2>
-            <p class="section-subtitle">Реальные фото с праздников наших клиентов</p>
+            <h2 class="section-title">РќР°С€Рё СЂР°Р±РѕС‚С‹</h2>
+            <p class="section-subtitle">Р РµР°Р»СЊРЅС‹Рµ С„РѕС‚Рѕ СЃ РїСЂР°Р·РґРЅРёРєРѕРІ РЅР°С€РёС… РєР»РёРµРЅС‚РѕРІ</p>
             
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1530103862676-de3c9a59af38?auto=format&fit=crop&w=600&q=80" alt="Work 1">
-                    <div class="gallery-overlay"><h3>День Рождения</h3><p>Фотозона в стиле "Единорог"</p></div>
+                    <div class="gallery-overlay"><h3>Р”РµРЅСЊ Р РѕР¶РґРµРЅРёСЏ</h3><p>Р¤РѕС‚РѕР·РѕРЅР° РІ СЃС‚РёР»Рµ "Р•РґРёРЅРѕСЂРѕРі"</p></div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=600&q=80" alt="Work 2">
-                    <div class="gallery-overlay"><h3>Свадьба</h3><p>Органическая арка</p></div>
+                    <div class="gallery-overlay"><h3>РЎРІР°РґСЊР±Р°</h3><p>РћСЂРіР°РЅРёС‡РµСЃРєР°СЏ Р°СЂРєР°</p></div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80" alt="Work 3">
-                    <div class="gallery-overlay"><h3>Выписка</h3><p>Набор в коробке</p></div>
+                    <div class="gallery-overlay"><h3>Р’С‹РїРёСЃРєР°</h3><p>РќР°Р±РѕСЂ РІ РєРѕСЂРѕР±РєРµ</p></div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?auto=format&fit=crop&w=600&q=80" alt="Work 4">
-                    <div class="gallery-overlay"><h3>Гендер Пати</h3><p>Шар-сюрприз</p></div>
+                    <div class="gallery-overlay"><h3>Р“РµРЅРґРµСЂ РџР°С‚Рё</h3><p>РЁР°СЂ-СЃСЋСЂРїСЂРёР·</p></div>
                 </div>
             </div>
         </div>
@@ -64,15 +65,15 @@
     <div class="modal" id="cartModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeCart()">&times;</span>
-            <h2>Ваша корзина</h2>
+            <h2>Р’Р°С€Р° РєРѕСЂР·РёРЅР°</h2>
             <div class="cart-items" id="cartItemsContainer"></div>
             <div style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 20px;">
-                <span>Итого:</span><span id="cartTotal">0 ?</span>
+                <span>РС‚РѕРіРѕ:</span><span id="cartTotal">0 в‚Ѕ</span>
             </div>
             <form onsubmit="submitOrder(event)">
-                <div class="form-group"><input type="text" placeholder="Ваше имя" required></div>
-                <div class="form-group"><input type="tel" placeholder="Телефон" required></div>
-                <button type="submit" class="btn" style="width: 100%;">Оформить заказ</button>
+                <div class="form-group"><input type="text" placeholder="Р’Р°С€Рµ РёРјСЏ" required></div>
+                <div class="form-group"><input type="tel" placeholder="РўРµР»РµС„РѕРЅ" required></div>
+                <button type="submit" class="btn" style="width: 100%;">РћС„РѕСЂРјРёС‚СЊ Р·Р°РєР°Р·</button>
             </form>
         </div>
     </div>
