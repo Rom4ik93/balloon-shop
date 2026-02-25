@@ -117,7 +117,14 @@ header {
     transition: 0.3s; position: relative; border: 1px solid #f0f0f0;
 }
 .product-card:hover { transform: translateY(-10px); }
-.product-img { height: 250px; width: 100%; object-fit: cover; background: #f9f9f9; }
+.product-img {
+    height: 400px;          
+    width: 100%;
+    object-fit: contain;   
+    background: #f9f9f9;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
 .product-info { padding: 20px; }
 .product-cat { font-size: 0.8rem; color: var(--secondary); font-weight: 700; text-transform: uppercase; }
 .product-title { font-size: 1.2rem; margin: 5px 0; font-weight: 700; }
@@ -287,3 +294,4 @@ footer { background: var(--dark); color: white; padding: 60px 0 20px; margin-top
     .lightbox-nav.next { right: 10px; }
     .lightbox-close { top: 15px; right: 25px; font-size: 30px; }
 }
+
