@@ -1,10 +1,10 @@
 /* script.js */
 // Данные товаров (имитация БД)
 const products = [
-    { id: 1, title: "Набор 'День Рождения'", price: 1990, cat: "helium", img: "https://images.unsplash.com/photo-1558636508-e0db3814bd1d?auto=format&fit=crop&w=400&q=80" },
-    { id: 2, title: "Цифра '5' Фольга", price: 850, cat: "figures", img: "https://images.unsplash.com/photo-1533294160622-c5c720a61364?auto=format&fit=crop&w=400&q=80" },
-    { id: 3, title: "Арка 'Органика'", price: 5500, cat: "arches", img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=400&q=80" },
-    { id: 4, title: "Облако шаров", price: 3200, cat: "helium", img: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=400&q=80" },
+    { id: 1, title: "Мото набор", price: 1375, cat: "figures", img: "images\products\moto_nabor.jpg" },
+    { id: 2, title: "Нежно голубой набор", price: 1950, cat: "figures", img: "images\products\nezhno_goluboj_nabor.jpg" },
+    { id: 3, title: "Шарики с бантиками", price: 190, cat: "helium", img: "images\products\shariki_s_bantikami.jpg" },
+    { id: 4, title: "Набор для братика и сестрёнки", price: 2750, cat: "helium", img: "images\products\nabor_dlya_bratika_i_sestryonki.jpg" },
     { id: 5, title: "Фигура Единорог", price: 1500, cat: "figures", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=400&q=80" },
     { id: 6, title: "Гирлянда 'Радуга'", price: 2100, cat: "arches", img: "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?auto=format&fit=crop&w=400&q=80" },
 ];
