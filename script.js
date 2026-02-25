@@ -6,7 +6,7 @@ const products = [
         price: 1375, 
         cat: "figures", 
         img: "images/products/moto_nabor.jpg?v=2",
-        description: "Тематический набор с мотоциклами"
+        description: "В набор входит:\nМотоцикл\n5 шариков хром"
     },
     { 
         id: 2, 
@@ -14,15 +14,15 @@ const products = [
         price: 1950, 
         cat: "figures", 
         img: "images/products/nezhno_goluboj_nabor.jpg?v=2",
-        description: "Набор в голубых тонах"
+        description: "В набор входит:\nЦифра\nФонтан из 7 шаров"
     },
     { 
         id: 3, 
         title: "Шарики с бантиками", 
-        price: 190, 
+        price: 1330, 
         cat: "helium", 
         img: "images/products/shariki_s_bantikami.jpg?v=2",
-        description: "Шарики с декоративными бантиками"
+        description: "Фонтан из 7 Шаров с бантиками"
     },
     { 
         id: 4, 
@@ -30,7 +30,7 @@ const products = [
         price: 2750, 
         cat: "helium", 
         img: "images/products/nabor_dlya_bratika_i_sestryonki.jpg?v=2",
-        description: "Набор для двойняшек"
+        description: "В набор входит:\nЕдинорог\n13 шариков"
     },
     { 
         id: 5, 
