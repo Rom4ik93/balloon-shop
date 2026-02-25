@@ -43,7 +43,7 @@ const products = [
     { 
         id: 6, 
         title: "Набор для фотозоны с цифрами", 
-        price: 2100, 
+        price: 3300, 
         cat: "figures", 
         img: "images/products/Nabor_dlya_fotozony_iz_10_gelievyh_Sharikov.jpg?v=2",
         description: "В набор входит:\nЦифры\n10 гелиевых Шариков"
@@ -51,7 +51,7 @@ const products = [
     { 
         id: 7, 
         title: "Фонтан 'Сердце'", 
-        price: 2100, 
+        price: 2160, 
         cat: "figures", 
         img: "images/products/Fontan_iz_10_serdec.jpg?v=2",
         description: "Фонтан из 10 сердец"
@@ -298,3 +298,4 @@ document.addEventListener('keydown', function(event) {
         if (event.key === 'ArrowRight') changeImage(1);
     }
 });
+
