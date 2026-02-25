@@ -1,4 +1,6 @@
 /* script.js */
+let currentImageIndex = 0;
+let visibleProducts = []; // Для навигации по изображениям
 const products = [
     { 
         id: 1, 
@@ -71,6 +73,7 @@ function renderProducts(items) {
     const grid = document.getElementById('productsGrid');
     if(!grid) return;
     
+    visibleProducts = items;
     // Версия для обхода кэша (меняй при обновлении картинок)
     const cacheVersion = 'v=2';
     
@@ -86,7 +89,7 @@ function renderProducts(items) {
         
         return `
         <div class="product-card">
-            <img src="${imgSrc}" class="product-img" alt="${product.title}" loading="lazy">
+            <img src="${imgSrc}" class="product-img" alt="${product.title}" loading="lazy" onclick="openLightbox(${index})">
             <div class="product-info">
                 <div class="product-cat">${categoryName}</div>
                 <h3 class="product-title">${product.title}</h3>
@@ -210,4 +213,94 @@ window.onclick = function(event) {
     if (event.target == modal) closeCart();
 }
 
+// ========== LIGHTBOX ФУНКЦИИ ==========
 
+function openLightbox(index) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('lightboxImg');
+    const caption = document.getElementById('lightboxCaption');
+    
+    if (!modal) return;
+    
+    currentImageIndex = index;
+    const product = visibleProducts[index];
+    
+    // Добавляем версию к локальным картинкам
+    let imgSrc = product.img;
+    if (imgSrc.startsWith('images/')) {
+        const separator = imgSrc.includes('?') ? '&' : '?';
+        imgSrc = `${imgSrc}${separator}v=2`;
+    }
+    
+    modalImg.src = imgSrc;
+    caption.textContent = product.title;
+    modal.style.display = 'flex';
+    
+    // Блокируем прокрутку страницы
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const modal = document.getElementById('imageModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // Возвращаем прокрутку
+    }
+}
+
+function changeImage(direction) {
+    currentImageIndex += direction;
+    
+    // Зацикливаем навигацию
+    if (currentImageIndex < 0) {
+        currentImageIndex = visibleProducts.length - 1;
+    } else if (currentImageIndex >= visibleProducts.length) {
+        currentImageIndex = 0;
+    }
+    
+    const product = visibleProducts[currentImageIndex];
+    const modalImg = document.getElementById('lightboxImg');
+    const caption = document.getElementById('lightboxCaption');
+    
+    let imgSrc = product.img;
+    if (imgSrc.startsWith('images/')) {
+        const separator = imgSrc.includes('?') ? '&' : '?';
+        imgSrc = `${imgSrc}${separator}v=2`;
+    }
+    
+    // Плавная смена
+    modalImg.style.opacity = '0';
+    setTimeout(() => {
+        modalImg.src = imgSrc;
+        caption.textContent = product.title;
+        modalImg.style.opacity = '1';
+    }, 150);
+}
+
+// Закрытие по клику вне картинки
+window.onclick = function(event) {
+    const modal = document.getElementById('imageModal');
+    if (event.target == modal) {
+        closeLightbox();
+    }
+    
+    // Закрытие корзины
+    const cartModal = document.getElementById('cartModal');
+    if (event.target == cartModal) {
+        closeCart();
+    }
+}
+
+// Закрытие по клавише Esc
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeLightbox();
+        closeCart();
+    }
+    
+    // Навигация стрелками
+    if (document.getElementById('imageModal').style.display === 'flex') {
+        if (event.key === 'ArrowLeft') changeImage(-1);
+        if (event.key === 'ArrowRight') changeImage(1);
+    }
+})

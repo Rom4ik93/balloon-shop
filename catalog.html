@@ -68,6 +68,17 @@
         </div>
     </div>
 
+    <!-- Lightbox для просмотра изображений -->
+    <div id="imageModal" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    
+        <!-- Кнопки навигации -->
+        <button class="lightbox-nav prev" onclick="changeImage(-1)">&#10094;</button>
+        <button class="lightbox-nav next" onclick="changeImage(1)">&#10095;</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
