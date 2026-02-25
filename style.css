@@ -118,9 +118,10 @@ header {
 }
 .product-card:hover { transform: translateY(-10px); }
 .product-img {
-    height: 400px;          /* ← Увеличил! */
+    height: 400px;
     width: 100%;
-    object-fit: contain;    /* ← Без обрезки */
+    object-fit: cover;          /* Заполняет всё пространство */
+    object-position: center;    /* Фокус на середине (по умолчанию) */
     background: #f9f9f9;
     border-radius: 15px;
     margin-bottom: 15px;
