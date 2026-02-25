@@ -43,16 +43,16 @@ const products = [
     { 
         id: 6, 
         title: "Набор для фотозоны с цифрами", 
-        price: 3300, 
-        cat: "figures", 
+        price: 2100, 
+        cat: "arches", 
         img: "images/products/Nabor_dlya_fotozony_iz_10_gelievyh_Sharikov.jpg?v=2",
         description: "В набор входит:\nЦифры\n10 гелиевых Шариков"
     },
     { 
         id: 7, 
         title: "Фонтан 'Сердце'", 
-        price: 2160, 
-        cat: "figures", 
+        price: 2100, 
+        cat: "arches", 
         img: "images/products/Fontan_iz_10_serdec.jpg?v=2",
         description: "Фонтан из 10 сердец"
     },
@@ -297,5 +297,38 @@ document.addEventListener('keydown', function(event) {
         if (event.key === 'ArrowLeft') changeImage(-1);
         if (event.key === 'ArrowRight') changeImage(1);
     }
-});
+})
 
+// ========== HERO СЛАЙД-ШОУ ==========
+
+function initSlideshow() {
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length === 0) return;
+    
+    let currentSlide = 0;
+    
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    
+    // Меняем слайд каждые 5 секунд
+    setInterval(nextSlide, 5000);
+}
+
+// Запускаем слайд-шоу при загрузке
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('✅ Сайт загрузился!');
+    initSlideshow();  // ← Добавил запуск слайд-шоу
+    updateCartCount();
+    
+    const grid = document.getElementById('productsGrid');
+    if (grid) {
+        console.log('✅ Сетка товаров найдена!');
+        renderProducts(products);
+        setupFilters();
+    } else {
+        console.error('❌ Сетка товаров не найдена!');
+    }
+});
