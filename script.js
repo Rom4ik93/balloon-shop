@@ -1,12 +1,47 @@
 /* script.js */
-// Данные товаров (имитация БД)
 const products = [
-    { id: 1, title: "Мото набор", price: 1375, cat: "figures", img: "images\products\moto_nabor.jpg" },
-    { id: 2, title: "Нежно голубой набор", price: 1950, cat: "figures", img: "images\products\nezhno_goluboj_nabor.jpg" },
-    { id: 3, title: "Шарики с бантиками", price: 190, cat: "helium", img: "images\products\shariki_s_bantikami.jpg" },
-    { id: 4, title: "Набор для братика и сестрёнки", price: 2750, cat: "helium", img: "images\products\nabor_dlya_bratika_i_sestryonki.jpg" },
-    { id: 5, title: "Фигура Единорог", price: 1500, cat: "figures", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=400&q=80" },
-    { id: 6, title: "Гирлянда 'Радуга'", price: 2100, cat: "arches", img: "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?auto=format&fit=crop&w=400&q=80" },
+    { 
+        id: 1, 
+        title: "Мото набор", 
+        price: 1375, 
+        cat: "figures", 
+        img: "images/products/moto_nabor.jpg"  // ← ПРЯМОЙ СЛЕШ /
+    },
+    { 
+        id: 2, 
+        title: "Нежно голубой набор", 
+        price: 1950, 
+        cat: "figures", 
+        img: "images/products/nezhno_goluboj_nabor.jpg" 
+    },
+    { 
+        id: 3, 
+        title: "Шарики с бантиками", 
+        price: 190, 
+        cat: "helium", 
+        img: "images/products/shariki_s_bantikami.jpg" 
+    },
+    { 
+        id: 4, 
+        title: "Набор для братика и сестрёнки", 
+        price: 2750, 
+        cat: "helium", 
+        img: "images/products/nabor_dlya_bratika_i_sestryonki.jpg" 
+    },
+    { 
+        id: 5, 
+        title: "Фигура Единорог", 
+        price: 1500, 
+        cat: "figures", 
+        img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=400&q=80"  // ← УБРАЛ ПРОБЕЛЫ
+    },
+    { 
+        id: 6, 
+        title: "Гирлянда 'Радуга'", 
+        price: 2100, 
+        cat: "arches", 
+        img: "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?auto=format&fit=crop&w=400&q=80"  // ← УБРАЛ ПРОБЕЛЫ
+    },
 ];
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -164,3 +199,4 @@ window.onclick = function(event) {
     const modal = document.getElementById('cartModal');
     if (event.target == modal) closeCart();
 }
+
