@@ -34,20 +34,29 @@ const products = [
     },
     { 
         id: 5, 
-        title: "Фигура Единорог", 
+        title: "Фонтан С ДР!🥳", 
         price: 1500, 
-        cat: "figures", 
-        img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=400&q=80",
-        description: "Фольгированный единорог, 60 см"
+        cat: "helium", 
+        img: "images/products/fontan_iz_10_sharikov.jpg?v=2",
+        description: "Фонтан из 10 Шариков, тематический 'С Днем Рождения!''"
     },
     { 
         id: 6, 
-        title: "Гирлянда 'Радуга'", 
+        title: "Набор для фотозоны с цифрами", 
         price: 2100, 
-        cat: "arches", 
-        img: "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?auto=format&fit=crop&w=400&q=80",
-        description: "Гирлянда из 30 шаров, 3 метра"
+        cat: "figures", 
+        img: "images/products/Nabor_dlya_fotozony_iz_10_gelievyh_Sharikov.jpg?v=2",
+        description: "В набор входит:\nЦифры\n10 гелиевых Шариков"
     },
+    { 
+        id: 7, 
+        title: "Фонтан 'Сердце'", 
+        price: 2100, 
+        cat: "figures", 
+        img: "images/products/Fontan_iz_10_serdec.jpg?v=2",
+        description: "Фонтан из 10 сердец"
+    },
+
 ];
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
