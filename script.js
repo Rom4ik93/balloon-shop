@@ -1,54 +1,59 @@
 /* script.js */
-let currentImageIndex = 0;
-let visibleProducts = []; // Для навигации по изображениям
 const products = [
     { 
         id: 1, 
         title: "Мото набор", 
         price: 1375, 
         cat: "figures", 
-        img: "images/products/moto_nabor.jpg"  // ← ПРЯМОЙ СЛЕШ /
+        img: "images/products/moto_nabor.jpg?v=2",
+        description: "Тематический набор с мотоциклами"
     },
     { 
         id: 2, 
         title: "Нежно голубой набор", 
         price: 1950, 
         cat: "figures", 
-        img: "images/products/nezhno_goluboj_nabor.jpg" 
+        img: "images/products/nezhno_goluboj_nabor.jpg?v=2",
+        description: "Набор в голубых тонах"
     },
     { 
         id: 3, 
         title: "Шарики с бантиками", 
         price: 190, 
         cat: "helium", 
-        img: "images/products/shariki_s_bantikami.jpg" 
+        img: "images/products/shariki_s_bantikami.jpg?v=2",
+        description: "Шарики с декоративными бантиками"
     },
     { 
         id: 4, 
         title: "Набор для братика и сестрёнки", 
         price: 2750, 
         cat: "helium", 
-        img: "images/products/nabor_dlya_bratika_i_sestryonki.jpg" 
+        img: "images/products/nabor_dlya_bratika_i_sestryonki.jpg?v=2",
+        description: "Набор для двойняшек"
     },
     { 
         id: 5, 
         title: "Фигура Единорог", 
         price: 1500, 
         cat: "figures", 
-        img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=400&q=80"  // ← УБРАЛ ПРОБЕЛЫ
+        img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=400&q=80",
+        description: "Фольгированный единорог, 60 см"
     },
     { 
         id: 6, 
         title: "Гирлянда 'Радуга'", 
         price: 2100, 
         cat: "arches", 
-        img: "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?auto=format&fit=crop&w=400&q=80"  // ← УБРАЛ ПРОБЕЛЫ
+        img: "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?auto=format&fit=crop&w=400&q=80",
+        description: "Гирлянда из 30 шаров, 3 метра"
     },
 ];
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let currentImageIndex = 0;
+let visibleProducts = [];
 
-// Перевод категорий
 const categoryNames = {
     'helium': 'Гелиевые',
     'figures': 'Фигуры',
@@ -56,31 +61,35 @@ const categoryNames = {
     'decor': 'Декор'
 };
 
-// Инициализация
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('✅ Сайт загрузился!');
     updateCartCount();
     
-    // Рендер товаров только если мы на странице каталога или главной
     const grid = document.getElementById('productsGrid');
     if (grid) {
+        console.log('✅ Сетка товаров найдена!');
         renderProducts(products);
         setupFilters();
+    } else {
+        console.error('❌ Сетка товаров не найдена!');
     }
 });
 
-// Рендеринг карточек
 function renderProducts(items) {
     const grid = document.getElementById('productsGrid');
-    if(!grid) return;
+    if(!grid) {
+        console.error('productsGrid не найден!');
+        return;
+    }
     
     visibleProducts = items;
-    // Версия для обхода кэша (меняй при обновлении картинок)
     const cacheVersion = 'v=2';
     
-    grid.innerHTML = items.map(product => {
+    console.log(`📦 Рендерим ${items.length} товаров`);
+    
+    grid.innerHTML = items.map((product, index) => {
         const categoryName = categoryNames[product.cat] || product.cat;
         
-        // Добавляем версию только к локальным картинкам
         let imgSrc = product.img;
         if (imgSrc.startsWith('images/')) {
             const separator = imgSrc.includes('?') ? '&' : '?';
@@ -89,7 +98,12 @@ function renderProducts(items) {
         
         return `
         <div class="product-card">
-            <img src="${imgSrc}" class="product-img" alt="${product.title}" loading="lazy" onclick="openLightbox(${index})">
+            <img src="${imgSrc}" 
+                 class="product-img" 
+                 alt="${product.title}" 
+                 loading="lazy"
+                 style="cursor: pointer;"
+                 onclick="openLightbox(${index})">
             <div class="product-info">
                 <div class="product-cat">${categoryName}</div>
                 <h3 class="product-title">${product.title}</h3>
@@ -103,9 +117,10 @@ function renderProducts(items) {
             </div>
         </div>
     `}).join('');
+    
+    console.log('✅ Товары отрисованы!');
 }
 
-// Фильтрация
 function setupFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
@@ -114,6 +129,8 @@ function setupFilters() {
             e.target.classList.add('active');
             
             const category = e.target.dataset.filter;
+            console.log(`Фильтр: ${category}`);
+            
             if (category === 'all') {
                 renderProducts(products);
             } else {
@@ -124,21 +141,12 @@ function setupFilters() {
     });
 }
 
-// Корзина
 function addToCart(id) {
     const product = products.find(p => p.id === id);
     cart.push(product);
     saveCart();
     updateCartCount();
-    
-    // Анимация кнопки
-    const btn = event.currentTarget;
-    btn.style.background = '#59C3C3';
-    btn.style.color = 'white';
-    setTimeout(() => {
-        btn.style.background = '';
-        btn.style.color = '';
-    }, 300);
+    alert(`✅ ${product.title} добавлен в корзину!`);
 }
 
 function saveCart() {
@@ -181,7 +189,7 @@ function removeFromCart(index) {
     cart.splice(index, 1);
     saveCart();
     updateCartCount();
-    openCart(); // Перерисовать модалку
+    openCart();
 }
 
 function closeCart() {
@@ -202,56 +210,44 @@ function submitOrder(e) {
     closeCart();
 }
 
-// Мобильное меню
 function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('active');
 }
 
-// Закрытие модалки по клику вне
-window.onclick = function(event) {
-    const modal = document.getElementById('cartModal');
-    if (event.target == modal) closeCart();
-}
-
-// ========== LIGHTBOX ФУНКЦИИ ==========
+// ========== LIGHTBOX ==========
 
 function openLightbox(index) {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('lightboxImg');
     const caption = document.getElementById('lightboxCaption');
     
-    if (!modal) return;
+    if (!modal) {
+        console.error('Lightbox не найден!');
+        return;
+    }
     
     currentImageIndex = index;
     const product = visibleProducts[index];
     
-    // Добавляем версию к локальным картинкам
-    let imgSrc = product.img;
-    if (imgSrc.startsWith('images/')) {
-        const separator = imgSrc.includes('?') ? '&' : '?';
-        imgSrc = `${imgSrc}${separator}v=2`;
-    }
-    
-    modalImg.src = imgSrc;
+    modalImg.src = product.img;
     caption.textContent = product.title;
     modal.style.display = 'flex';
-    
-    // Блокируем прокрутку страницы
     document.body.style.overflow = 'hidden';
+    
+    console.log('🖼️ Lightbox открыт');
 }
 
 function closeLightbox() {
     const modal = document.getElementById('imageModal');
     if (modal) {
         modal.style.display = 'none';
-        document.body.style.overflow = ''; // Возвращаем прокрутку
+        document.body.style.overflow = '';
     }
 }
 
 function changeImage(direction) {
     currentImageIndex += direction;
     
-    // Зацикливаем навигацию
     if (currentImageIndex < 0) {
         currentImageIndex = visibleProducts.length - 1;
     } else if (currentImageIndex >= visibleProducts.length) {
@@ -262,45 +258,34 @@ function changeImage(direction) {
     const modalImg = document.getElementById('lightboxImg');
     const caption = document.getElementById('lightboxCaption');
     
-    let imgSrc = product.img;
-    if (imgSrc.startsWith('images/')) {
-        const separator = imgSrc.includes('?') ? '&' : '?';
-        imgSrc = `${imgSrc}${separator}v=2`;
-    }
-    
-    // Плавная смена
     modalImg.style.opacity = '0';
     setTimeout(() => {
-        modalImg.src = imgSrc;
+        modalImg.src = product.img;
         caption.textContent = product.title;
         modalImg.style.opacity = '1';
     }, 150);
 }
 
-// Закрытие по клику вне картинки
 window.onclick = function(event) {
     const modal = document.getElementById('imageModal');
     if (event.target == modal) {
         closeLightbox();
     }
     
-    // Закрытие корзины
     const cartModal = document.getElementById('cartModal');
     if (event.target == cartModal) {
         closeCart();
     }
 }
 
-// Закрытие по клавише Esc
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeLightbox();
         closeCart();
     }
     
-    // Навигация стрелками
     if (document.getElementById('imageModal').style.display === 'flex') {
         if (event.key === 'ArrowLeft') changeImage(-1);
         if (event.key === 'ArrowRight') changeImage(1);
     }
-})
+});
