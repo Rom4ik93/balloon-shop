@@ -34,19 +34,46 @@
 
     <section class="section" style="padding-top: 120px;">
         <div class="container">
+            <!-- Главный блок с призывом -->
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: var(--primary);">
+                    Хотите порадовать близкого человека? ❤️
+                </h2>
+                <p style="font-size: 1.5rem; color: var(--dark); margin-bottom: 30px;">
+                    <strong>Мы поможем Вам!</strong>
+                </p>
+                <p style="font-size: 1.2rem; color: var(--gray); max-width: 800px; margin: 0 auto 20px; line-height: 1.8;">
+                    Украшение на любой вкус и на любое мероприятие, 
+                    <br>а самое <strong style="color: var(--primary); font-size: 1.3rem;">ГЛАВНОЕ</strong> в любом месте 😍
+                </p>
+                <p style="font-size: 1.3rem; color: var(--dark); margin-top: 30px;">
+                    <strong>Радуйте себя и своих близких!</strong>
+                </p>
+            </div>
+
+            <!-- Фото оформления -->
+            <div style="margin-bottom: 60px;">
+                <img src="images/about/birthday-setup.jpg" 
+                     alt="Оформление дня рождения" 
+                     style="width: 100%; max-width: 900px; border-radius: var(--radius); box-shadow: var(--shadow); display: block; margin: 0 auto;">
+            </div>
+
+            <!-- О компании -->
             <div class="about-grid">
                 <div>
                     <h2 class="section-title" style="text-align: left;">О компании</h2>
-                    <p style="margin-bottom: 20px; color: var(--gray);">
-                        Мы создаем настроение с 2020 года. Наша команда состоит из профессиональных аэродизайнеров, которые любят свою работу. Мы используем только биоразлагаемые шары премиум-класса (Sempertex, Gemar), которые не лопаются в течение нескольких дней.
+                    <p style="margin-bottom: 20px; color: var(--gray); line-height: 1.8;">
+                        Мы создаем настроение с 2020 года. Наша команда состоит из профессиональных аэродизайнеров, которые любят свою работу. 
+                        Мы используем только биоразлагаемые шары премиум-класса (Sempertex, Gemar), которые не лопаются в течение нескольких дней.
                     </p>
-                    <p style="color: var(--gray);">
+                    <p style="color: var(--gray); line-height: 1.8;">
                         Работаем ежедневно с 9:00 до 21:00. Доставляем радость в любую точку города.
                     </p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1533294160622-c5c720a61364?auto=format&fit=crop&w=600&q=80" alt="About Us" class="about-img">
+                <img src="https://placehold.co/600x400/FF8BA7/ffffff?text=Наша+команда" alt="About Us" class="about-img">
             </div>
 
+            <!-- Контакты -->
             <div class="contact-info" style="margin-top: 60px;">
                 <h2 class="section-title">Контакты</h2>
                 <div class="contact-item"><i class="fas fa-phone"></i> +7 (999) 000-00-00</div>
@@ -58,9 +85,12 @@
     </section>
 
     <footer>
-        <div class="container"><div class="copyright">&copy; 2023 Balloons Joy.</div></div>
+        <div class="container">
+            <div class="copyright">&copy; 2023 Balloons Joy. Прототип для GitHub Pages.</div>
+        </div>
     </footer>
 
+    <!-- Модальное окно корзины -->
     <div class="modal" id="cartModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeCart()">&times;</span>
