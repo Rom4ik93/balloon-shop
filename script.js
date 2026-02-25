@@ -107,7 +107,7 @@ function renderProducts(items) {
             <div class="product-info">
                 <div class="product-cat">${categoryName}</div>
                 <h3 class="product-title">${product.title}</h3>
-                <p class="product-desc">${product.description || ''}</p>
+                <p class="product-desc">${(product.description || '').replace(/\n/g, '<br>')}</p>
                 <div class="product-footer">
                     <span class="price">${product.price} ₽</span>
                     <button class="add-btn" onclick="addToCart(${product.id})">
