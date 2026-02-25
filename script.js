@@ -71,16 +71,26 @@ function renderProducts(items) {
     const grid = document.getElementById('productsGrid');
     if(!grid) return;
     
+    // Версия для обхода кэша (меняй при обновлении картинок)
+    const cacheVersion = 'v=2';
+    
     grid.innerHTML = items.map(product => {
-        // Переводим категорию
         const categoryName = categoryNames[product.cat] || product.cat;
+        
+        // Добавляем версию только к локальным картинкам
+        let imgSrc = product.img;
+        if (imgSrc.startsWith('images/')) {
+            const separator = imgSrc.includes('?') ? '&' : '?';
+            imgSrc = `${imgSrc}${separator}${cacheVersion}`;
+        }
         
         return `
         <div class="product-card">
-            <img src="${product.img}" class="product-img" alt="${product.title}">
+            <img src="${imgSrc}" class="product-img" alt="${product.title}" loading="lazy">
             <div class="product-info">
                 <div class="product-cat">${categoryName}</div>
                 <h3 class="product-title">${product.title}</h3>
+                <p class="product-desc">${product.description || ''}</p>
                 <div class="product-footer">
                     <span class="price">${product.price} ₽</span>
                     <button class="add-btn" onclick="addToCart(${product.id})">
@@ -199,4 +209,5 @@ window.onclick = function(event) {
     const modal = document.getElementById('cartModal');
     if (event.target == modal) closeCart();
 }
+
 
