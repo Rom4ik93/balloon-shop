@@ -4,59 +4,74 @@ const products = [
         id: 1, 
         title: "Мото набор", 
         price: 1375, 
-        cat: "figures", 
+        cat: "boy", 
         img: "images/products/moto_nabor.jpg?v=2",
-        description: "В набор входит:\nМотоцикл\n5 шариков хром"
+        description: "В набор входит:\n🏍️ Мотоцикл\n🎈 5 шариков хром\n🎀 Ленты в тон"
     },
     { 
         id: 2, 
-        title: "Нежно голубой набор", 
-        price: 1950, 
-        cat: "figures", 
-        img: "images/products/nezhno_goluboj_nabor.jpg?v=2",
-        description: "В набор входит:\nЦифра\nФонтан из 7 шаров"
+        title: "Шарики с бантиками", 
+        price: 190, 
+        cat: "girl", 
+        img: "images/products/shariki_s_bantikami.jpg?v=2",
+        description: "В набор входит:\n🎈 5 шаров с гелием\n🎀 Декоративные бантики"
     },
     { 
         id: 3, 
-        title: "Шарики с бантиками", 
-        price: 1330, 
-        cat: "helium", 
-        img: "images/products/shariki_s_bantikami.jpg?v=2",
-        description: "Фонтан из 7 Шаров с бантиками"
+        title: "Набор для братика и сестрёнки", 
+        price: 2750, 
+        cat: "boy", 
+        img: "images/products/nabor_dlya_bratika_i_sestryonki.jpg?v=2",
+        description: "В набор входит:\n👦 5 синих шаров\n👧 5 розовых шаров\n🎀 Ленты"
     },
     { 
         id: 4, 
-        title: "Набор для братика и сестрёнки", 
-        price: 2750, 
-        cat: "helium", 
-        img: "images/products/nabor_dlya_bratika_i_sestryonki.jpg?v=2",
-        description: "В набор входит:\nЕдинорог\n13 шариков"
+        title: "Набор для неё", 
+        price: 2100, 
+        cat: "arches", 
+        img: "images/products/nabor_dlya_nee.jpg?v=2",
+        description: "В набор входит:\n🌸 10 розовых шаров\n🎀 Декоративные элементы"
     },
     { 
         id: 5, 
-        title: "Фонтан С ДР!🥳", 
-        price: 1500, 
-        cat: "helium", 
-        img: "images/products/fontan_iz_10_sharikov.jpg?v=2",
-        description: "Фонтан из 10 Шариков, тематический 'С Днем Рождения!''"
+        title: "Набор для Него", 
+        price: 2300, 
+        cat: "figures", 
+        img: "images/products/for_him_1.jpg?v=2",
+        description: "В набор входит:\n🎈 10 шаров\n🎁 Фигура\n🎀 Ленты"
     },
     { 
         id: 6, 
-        title: "Набор для фотозоны с цифрами", 
-        price: 2100, 
-        cat: "arches", 
-        img: "images/products/Nabor_dlya_fotozony_iz_10_gelievyh_Sharikov.jpg?v=2",
-        description: "В набор входит:\nЦифры\n10 гелиевых Шариков"
+        title: "Шары под потолок", 
+        price: 1500, 
+        cat: "helium", 
+        img: "images/products/helium_1.jpg?v=2",
+        description: "В набор входит:\n🎈 10 шаров с гелием\n🎀 Ленты в тон"
     },
     { 
         id: 7, 
-        title: "Фонтан 'Сердце'", 
-        price: 2100, 
-        cat: "arches", 
-        img: "images/products/Fontan_iz_10_serdec.jpg?v=2",
-        description: "Фонтан из 10 сердец"
+        title: "Набор для принцессы", 
+        price: 2200, 
+        cat: "girl", 
+        img: "images/products/nabor_princessa.jpg?v=2",
+        description: "В набор входит:\n👸 10 розовых шаров\n👑 Фольгированная корона"
     },
-
+    { 
+        id: 8, 
+        title: "Набор на выписку", 
+        price: 3500, 
+        cat: "baby", 
+        img: "images/products/nabor_vypiska.jpg?v=2",
+        description: "В набор входит:\n🎈 15 шаров с гелием\n🎁 Коробка"
+    },
+    { 
+        id: 9, 
+        title: "Свадебный набор", 
+        price: 4500, 
+        cat: "wedding", 
+        img: "images/products/svadba_nabor.jpg?v=2",
+        description: "В набор входит:\n💍 20 белых шаров\n✨ Серебряные акценты"
+    },
 ];
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -64,9 +79,13 @@ let currentImageIndex = 0;
 let visibleProducts = [];
 
 const categoryNames = {
-    'helium': 'Гелиевые',
-    'figures': 'Фигуры',
-    'arches': 'Арки',
+    'helium': 'Шары под потолок',
+    'figures': 'Наборы для Него',
+    'arches': 'Наборы для Неё',
+    'boy': 'Набор для мальчика',
+    'girl': 'Набор для девочки',
+    'baby': 'Шары на выписку',
+    'wedding': 'Шары на свадьбу',
     'decor': 'Декор'
 };
 
@@ -223,62 +242,127 @@ function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('active');
 }
 
-// ========== LIGHTBOX ==========
+// ========== LIGHTBOX ДЛЯ ГАЛЕРЕИ (С НЕСКОЛЬКИМИ ФОТО) ==========
 
-function openLightbox(index) {
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('lightboxImg');
-    const caption = document.getElementById('lightboxCaption');
-    
-    if (!modal) {
-        console.error('Lightbox не найден!');
-        return;
+let galleryImageIndex = 0;
+let currentGalleryItem = 0;
+
+// Массив работ, у каждой работы несколько фото
+const galleryWorks = [
+    {
+        title: "День Рождения",
+        desc: "Фотозона в стиле 'Единорог'",
+        images: [
+            "images/gallery/birthday_1.jpg",
+            "images/gallery/birthday_2.jpg",
+            "images/gallery/birthday_3.jpg"
+        ]
+    },
+    {
+        title: "Свадьба",
+        desc: "Органическая арка из 200 шаров",
+        images: [
+            "images/gallery/wedding_1.jpg",
+            "images/gallery/wedding_2.jpg",
+            "images/gallery/wedding_3.jpg"
+        ]
+    },
+    {
+        title: "Выписка из роддома",
+        desc: "Набор в коробке с фольгированными шарами",
+        images: [
+            "images/gallery/baby_1.jpg",
+            "images/gallery/baby_2.jpg",
+            "images/gallery/baby_3.jpg"
+        ]
+    },
+    {
+        title: "Для мальчика",
+        desc: "Синяя тематика",
+        images: [
+            "images/gallery/boy_1.jpg",
+            "images/gallery/boy_2.jpg"
+        ]
+    },
+    {
+        title: "Для девочки",
+        desc: "Розовая тематика",
+        images: [
+            "images/gallery/girl_1.jpg",
+            "images/gallery/girl_2.jpg"
+        ]
+    },
+    {
+        title: "Шары на выписку",
+        desc: "Разные варианты оформления",
+        images: [
+            "images/gallery/vypiska_1.jpg",
+            "images/gallery/vypiska_2.jpg",
+            "images/gallery/vypiska_3.jpg"
+        ]
     }
+];
+
+function openGalleryLightbox(workIndex) {
+    const modal = document.getElementById('galleryLightbox');
+    const modalImg = document.getElementById('galleryLightboxImg');
+    const caption = document.getElementById('galleryLightboxCaption');
+    const counter = document.getElementById('galleryLightboxCounter');
     
-    currentImageIndex = index;
-    const product = visibleProducts[index];
+    if (!modal) return;
     
-    modalImg.src = product.img;
-    caption.textContent = product.title;
+    currentGalleryItem = workIndex;
+    galleryImageIndex = 0;
+    
+    const work = galleryWorks[workIndex];
+    const imgSrc = work.images[0];
+    
+    modalImg.src = imgSrc;
+    caption.innerHTML = `<strong>${work.title}</strong><br>${work.desc}`;
+    counter.textContent = `1 / ${work.images.length}`;
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
-    
-    console.log('🖼️ Lightbox открыт');
 }
 
-function closeLightbox() {
-    const modal = document.getElementById('imageModal');
+function closeGalleryLightbox() {
+    const modal = document.getElementById('galleryLightbox');
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = '';
     }
 }
 
-function changeImage(direction) {
-    currentImageIndex += direction;
+function changeGalleryImage(direction) {
+    const work = galleryWorks[currentGalleryItem];
+    galleryImageIndex += direction;
     
-    if (currentImageIndex < 0) {
-        currentImageIndex = visibleProducts.length - 1;
-    } else if (currentImageIndex >= visibleProducts.length) {
-        currentImageIndex = 0;
+    // Зацикливаем
+    if (galleryImageIndex < 0) {
+        galleryImageIndex = work.images.length - 1;
+    } else if (galleryImageIndex >= work.images.length) {
+        galleryImageIndex = 0;
     }
     
-    const product = visibleProducts[currentImageIndex];
-    const modalImg = document.getElementById('lightboxImg');
-    const caption = document.getElementById('lightboxCaption');
+    const modalImg = document.getElementById('galleryLightboxImg');
+    const caption = document.getElementById('galleryLightboxCaption');
+    const counter = document.getElementById('galleryLightboxCounter');
     
+    const imgSrc = work.images[galleryImageIndex];
+    
+    // Плавная смена
     modalImg.style.opacity = '0';
     setTimeout(() => {
-        modalImg.src = product.img;
-        caption.textContent = product.title;
+        modalImg.src = imgSrc;
+        counter.textContent = `${galleryImageIndex + 1} / ${work.images.length}`;
         modalImg.style.opacity = '1';
     }, 150);
 }
 
+// Закрытие галереи по клику вне картинки
 window.onclick = function(event) {
-    const modal = document.getElementById('imageModal');
+    const modal = document.getElementById('galleryLightbox');
     if (event.target == modal) {
-        closeLightbox();
+        closeGalleryLightbox();
     }
     
     const cartModal = document.getElementById('cartModal');
@@ -287,17 +371,26 @@ window.onclick = function(event) {
     }
 }
 
+// Закрытие галереи по Esc и навигация стрелками
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
+        closeGalleryLightbox();
         closeLightbox();
         closeCart();
     }
     
+    // Навигация по галерее стрелками
+    if (document.getElementById('galleryLightbox').style.display === 'flex') {
+        if (event.key === 'ArrowLeft') changeGalleryImage(-1);
+        if (event.key === 'ArrowRight') changeGalleryImage(1);
+    }
+    
+    // Навигация по товарам стрелками
     if (document.getElementById('imageModal').style.display === 'flex') {
         if (event.key === 'ArrowLeft') changeImage(-1);
         if (event.key === 'ArrowRight') changeImage(1);
     }
-})
+});
 
 // ========== HERO СЛАЙД-ШОУ ==========
 

@@ -24,6 +24,7 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;  /* ← Показываем что можно кликнуть */
         }
         
         .gallery-item:hover {
@@ -73,7 +74,6 @@
             color: #fff;
         }
         
-        /* Placeholder для изображений */
         .gallery-placeholder {
             width: 100%;
             height: 100%;
@@ -114,57 +114,57 @@
             <p class="section-subtitle">Реальные фото с праздников наших клиентов</p>
             
             <div class="gallery-grid">
-                <!-- Работа 1 -->
-                <div class="gallery-item" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                    <img src="https://placehold.co/600x400/667eea/ffffff?text=День+Рождения" alt="День рождения">
+                <!-- Работа 1: День рождения (индекс 0) -->
+                <div class="gallery-item" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" onclick="openGalleryLightbox(0)">
+                    <img src="images/gallery/birthday_1.jpg" alt="День рождения">
                     <div class="gallery-overlay">
                         <h3>День Рождения</h3>
-                        <p>Фотозона в стиле "Единорог"</p>
+                        <p>Фотозона в стиле "Единорог" (3 фото)</p>
                     </div>
                 </div>
                 
-                <!-- Работа 2 -->
-                <div class="gallery-item" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                    <img src="https://placehold.co/600x400/f093fb/ffffff?text=Свадьба" alt="Свадьба">
+                <!-- Работа 2: Свадьба (индекс 1) -->
+                <div class="gallery-item" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);" onclick="openGalleryLightbox(1)">
+                    <img src="images/gallery/wedding_1.jpg" alt="Свадьба">
                     <div class="gallery-overlay">
                         <h3>Свадьба</h3>
-                        <p>Органическая арка из 200 шаров</p>
+                        <p>Органическая арка из 200 шаров (4 фото)</p>
                     </div>
                 </div>
                 
-                <!-- Работа 3 -->
-                <div class="gallery-item" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                    <img src="https://placehold.co/600x400/4facfe/ffffff?text=Выписка" alt="Выписка">
+                <!-- Работа 3: Выписка (индекс 2) -->
+                <div class="gallery-item" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);" onclick="openGalleryLightbox(2)">
+                    <img src="images/gallery/baby_1.jpg" alt="Выписка">
                     <div class="gallery-overlay">
                         <h3>Выписка из роддома</h3>
-                        <p>Набор в коробке с фольгированными шарами</p>
+                        <p>Набор в коробке (3 фото)</p>
                     </div>
                 </div>
                 
-                <!-- Работа 4 -->
-                <div class="gallery-item" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                    <img src="https://placehold.co/600x400/43e97b/ffffff?text=Гендер+Пати" alt="Гендер пати">
+                <!-- Работа 4: Для мальчика (индекс 3) -->
+                <div class="gallery-item" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);" onclick="openGalleryLightbox(3)">
+                    <img src="images/gallery/boy_1.jpg" alt="Для мальчика">
                     <div class="gallery-overlay">
-                        <h3>Гендер Пати</h3>
-                        <p>Шар-сюрприз с конфетти</p>
+                        <h3>Для мальчика</h3>
+                        <p>Синяя тематика (2 фото)</p>
                     </div>
                 </div>
                 
-                <!-- Работа 5 -->
-                <div class="gallery-item" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                    <img src="https://placehold.co/600x400/fa709a/ffffff?text=Юбилей" alt="Юбилей">
+                <!-- Работа 5: Для девочки (индекс 4) -->
+                <div class="gallery-item" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);" onclick="openGalleryLightbox(4)">
+                    <img src="images/gallery/girl_1.jpg" alt="Для девочки">
                     <div class="gallery-overlay">
-                        <h3>Юбилей 50 лет</h3>
-                        <p>Воздушная арка и фотозона</p>
+                        <h3>Для девочки</h3>
+                        <p>Розовая тематика (2 фото)</p>
                     </div>
                 </div>
                 
-                <!-- Работа 6 -->
-                <div class="gallery-item" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-                    <img src="https://placehold.co/600x400/a8edea/333333?text=Детский+Праздник" alt="Детский праздник">
+                <!-- Работа 6: Шары на выписку (индекс 5) -->
+                <div class="gallery-item" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);" onclick="openGalleryLightbox(5)">
+                    <img src="https://placehold.co/600x400/a8edea/333333?text=Детский+Праздник" alt="Шары на выписку">
                     <div class="gallery-overlay">
-                        <h3>Детский праздник</h3>
-                        <p>Оформление зала шариками</p>
+                        <h3>Шары на выписку</h3>
+                        <p>Разные варианты оформления (3 фото)</p>
                     </div>
                 </div>
             </div>
@@ -192,6 +192,20 @@
                 <button type="submit" class="btn" style="width: 100%;">Оформить заказ</button>
             </form>
         </div>
+    </div>
+
+    <!-- ========== LIGHTBOX ДЛЯ ГАЛЕРЕИ ========== -->
+    <div id="galleryLightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeGalleryLightbox()">&times;</span>
+        <img class="lightbox-content" id="galleryLightboxImg" src="" alt="">
+        <div class="lightbox-caption" id="galleryLightboxCaption"></div>
+        
+        <!-- Кнопки навигации -->
+        <button class="lightbox-nav prev" onclick="changeGalleryImage(-1)">&#10094;</button>
+        <button class="lightbox-nav next" onclick="changeGalleryImage(1)">&#10095;</button>
+        
+        <!-- Счетчик фото -->
+        <div class="lightbox-counter" id="galleryLightboxCounter" style="position: absolute; top: 20px; left: 35px; color: white; font-size: 1rem; background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 20px;"></div>
     </div>
 
     <script src="script.js"></script>
