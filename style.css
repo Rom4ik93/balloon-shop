@@ -450,31 +450,59 @@ footer { background: var(--dark); color: white; padding: 60px 0 20px; margin-top
 .logo-balloons {
     display: inline-flex;
     position: relative;
-    width: 50px;
+    width: 60px;
     height: 50px;
+    /* ← Убедились что это НЕ наследует прозрачность */
+    -webkit-text-fill-color: initial !important;
 }
 
 .logo-balloon {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     position: absolute;
     display: inline-block;
-    filter: drop-shadow(0 5px 10px rgba(255, 139, 167, 0.4));
+    line-height: 1;
+    /* ← ВОЗВРАЩАЕМ ЦВЕТ эмодзи */
+    -webkit-text-fill-color: initial !important;
+    color: #FF8BA7;
+    filter: drop-shadow(0 3px 5px rgba(0,0,0,0.2));
 }
 
-/* Первый шарик - танцует влево-вправо */
 .balloon-1 {
     left: 0;
-    animation: 
-        dance1 2s ease-in-out infinite,
-        colorChange1 3s ease-in-out infinite;
+    top: 0;
+    animation: dance1 2s ease-in-out infinite, colorChange1 3s ease-in-out infinite;
 }
 
-/* Второй шарик - танцует вправо-влево */
 .balloon-2 {
     right: 0;
-    animation: 
-        dance2 2s ease-in-out infinite,
-        colorChange2 3s ease-in-out infinite;
+    top: 0;
+    animation: dance2 2s ease-in-out infinite, colorChange2 3s ease-in-out infinite;
+}
+
+@keyframes dance1 {
+    0%, 100% { transform: translateY(0) rotate(-10deg); }
+    50% { transform: translateY(-10px) rotate(-15deg); }
+}
+
+@keyframes dance2 {
+    0%, 100% { transform: translateY(0) rotate(10deg); }
+    50% { transform: translateY(-10px) rotate(15deg); }
+}
+
+@keyframes colorChange1 {
+    0%, 100% { filter: hue-rotate(0deg) drop-shadow(0 3px 5px rgba(0,0,0,0.2)); }
+    50% { filter: hue-rotate(90deg) drop-shadow(0 5px 10px rgba(0,0,0,0.3)); }
+}
+
+@keyframes colorChange2 {
+    0%, 100% { filter: hue-rotate(180deg) drop-shadow(0 3px 5px rgba(0,0,0,0.2)); }
+    50% { filter: hue-rotate(270deg) drop-shadow(0 5px 10px rgba(0,0,0,0.3)); }
+}
+
+@media (max-width: 768px) {
+    .logo { font-size: 1.4rem; }
+    .logo-balloon { font-size: 2rem; }
+    .logo-balloons { width: 50px; height: 40px; }
 }
 
 /* Танец первого шарика */
